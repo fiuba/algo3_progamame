@@ -1,3 +1,5 @@
+IMPORTANTE: Leer [Versión de herramientas](#versión-de-herramientas)
+
 # ProgaMAME
 
 ![mame](images/mame.png)
@@ -10,9 +12,9 @@ Refactorizar un código dado, sin cambiar el conjunto de pruebas dado.
 
 ## Descripción del problema:
 
-PrograMAME es un [Arcade](https://es.wikipedia.org/wiki/Arcade) que cuenta 
-con varios juegos de mame, cada uno de los cuales se pueden jugar utilizando 
-distintos medios de pagos, a saber: 
+PrograMAME es un [Arcade](https://es.wikipedia.org/wiki/Arcade) que cuenta
+con varios juegos de mame, cada uno de los cuales se pueden jugar utilizando
+distintos medios de pagos, a saber:
 
 1. [Fichines](https://cmjason.files.wordpress.com/2013/05/ficha.jpg)
 2. [Tarjeta Magnetica](http://mla-s2-p.mlstatic.com/651211-MLA42595098263_072020-O.jpg).
@@ -24,7 +26,7 @@ dependiendo del juego:
 - Mortal Kombat 2: 3 fichas.
 - The Killer Instinct 2: 30 pesos de crédito.
 
-Necesitamos crear un modelo que nos permita restringir los juegos que pueden 
+Necesitamos crear un modelo que nos permita restringir los juegos que pueden
 ser utilizados por un jugador, en función de sus créditos.
 
 #### Material:
@@ -38,4 +40,12 @@ ser utilizados por un jugador, en función de sus créditos.
 3. Proponer una mejora minúscula de código. Solo una (15 min.).
 4. Revisar soluciones (15 min.)
 5. Volver a (2).
+
+## Versión de herramientas
+
+| Herramienta | Version |
+|-------------|---------|
+| mvn         | 3.6.3   |
+| java        | 11.0.7  |
+| IntelliJ    | 2019.3  |
 
