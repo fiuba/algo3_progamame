@@ -1,5 +1,7 @@
 package ar.edu.uba.fi.modelo;
 
+import java.util.ArrayList;
+
 public abstract class Juego {
     private String nombre;
     protected int creditoEnCreditosNecesarios;
@@ -11,10 +13,10 @@ public abstract class Juego {
         this.creditoEnFichasNecesarios = creditoEnFichasNecesarios;
     }
 
-    public abstract String jugar(Ficha creditoEnFichas, DineroDigital creditoEnCreditos);
-
     public boolean mismoNombre(String nombre) {
 
         return this.nombre.equals(nombre);
     }
+
+    public abstract String jugar(ArrayList<Credito> creditos);
 }

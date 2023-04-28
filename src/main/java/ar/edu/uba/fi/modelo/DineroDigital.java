@@ -1,6 +1,6 @@
 package ar.edu.uba.fi.modelo;
 
-public class DineroDigital {
+public class DineroDigital extends Credito {
     private int cantidadCreditos;
 
     public DineroDigital(int cantidadCreditos) {
@@ -14,11 +14,19 @@ public class DineroDigital {
     }
 
     public DineroDigital(String cantidadDeCreditos) {
+
         this.cantidadCreditos = Integer.parseInt(cantidadDeCreditos);
     }
 
-    public DineroDigital acumular(DineroDigital c) {
-        return new DineroDigital(c.cantidadCreditos + cantidadCreditos);
+    public DineroDigital acumular(Credito c) {
+
+        if ( !c.getClass().equals(this.getClass())) {
+            return new DineroDigital();
+        }
+
+        DineroDigital otro = (DineroDigital) c;
+
+        return new DineroDigital(otro.cantidadCreditos + cantidadCreditos);
     }
 
     public int valor() {

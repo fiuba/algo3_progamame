@@ -1,6 +1,6 @@
 package ar.edu.uba.fi.modelo;
 
-public class Ficha {
+public class Ficha extends Credito {
     private int cantidadFichas;
 
     public Ficha(int cantidadFichas) {
@@ -13,8 +13,17 @@ public class Ficha {
         this.cantidadFichas = 0;
     }
 
-    public Ficha acumular(Ficha f) {
-        return new Ficha(f.cantidadFichas + cantidadFichas);
+    @Override
+    public Credito acumular(Credito c) {
+
+        if ( !c.getClass().equals(this.getClass())) {
+
+            return new Ficha();
+
+        }
+        Ficha otro = (Ficha) c;
+
+        return new Ficha(otro.cantidadFichas + cantidadFichas);
     }
 
     public int valor() {
