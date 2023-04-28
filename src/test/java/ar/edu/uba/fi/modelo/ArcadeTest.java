@@ -21,7 +21,7 @@ public class ArcadeTest
 
     @Test
     public void test01JugadorPoneUnaFichaEligeWonderBoyJuega() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new WonderBoy());
 
         arcade.agregarFicha(1);
 
@@ -33,7 +33,7 @@ public class ArcadeTest
 
     @Test
     public void test02JugadorPoneDosFichaEligeWonderBoyJuega() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new WonderBoy());
 
         arcade.agregarFicha(2);
 
@@ -45,7 +45,7 @@ public class ArcadeTest
 
     @Test
     public void test03JugadorNoPusoFichasEligeWonderBoyNoJuega() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new WonderBoy());
 
         assertThrows(SinCredito.class, () -> {
             arcade.jugarA("Wonderboy");
@@ -54,7 +54,7 @@ public class ArcadeTest
 
     @Test
     public void test04JugadorAgregaDosFichasEligeMortalKombat2Juega() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new MK2());
 
         arcade.agregarFicha(2);
 
@@ -65,7 +65,7 @@ public class ArcadeTest
 
     @Test
     public void test05JugadorAgregaUnaFichaEligeMortalKombat2NoCredito() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new MK2());
 
         arcade.agregarFicha(1);
 
@@ -76,7 +76,7 @@ public class ArcadeTest
 
     @Test
     public void test06JugadorAgregaPesos10EligeMortalKombat2NoCredito() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new MK2());
 
         arcade.agregarCreditos(10);
 
@@ -87,7 +87,7 @@ public class ArcadeTest
 
     @Test
     public void test07JugadorAgregaPesos30EligeKI2Juegando() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new KI2());
 
         arcade.agregarCreditos(30);
 
@@ -98,7 +98,7 @@ public class ArcadeTest
 
     @Test
     public void test08JugadorAgregaPesos30EligeKI2Juegando() {
-        Arcade arcade = new Arcade();
+        Arcade arcade = new Arcade(new KI2());
 
         arcade.agregarCreditos("15");
         arcade.agregarCreditos("15");

@@ -3,8 +3,8 @@ package ar.edu.uba.fi.modelo;
 public class KI2 extends Juego {
     private int creditoEnCreditos;
 
-    public KI2(int creditosNecesariosParaJugar) {
-        super("KI2", creditosNecesariosParaJugar, 0);
+    public KI2() {
+        super("KI2", 30, 0);
     }
 
     private boolean creditosParaKI2() {

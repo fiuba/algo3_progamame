@@ -2,8 +2,8 @@ package ar.edu.uba.fi.modelo;
 
 public class WonderBoy extends Juego {
 
-    public WonderBoy(int creditosEnFichasNecesarios) {
-        super("Wonderboy", 0, creditosEnFichasNecesarios);
+    public WonderBoy() {
+        super("Wonderboy", 0, 1);
     }
 
     public String jugar(int creditoEnFichas, int creditoEnCreditos) {

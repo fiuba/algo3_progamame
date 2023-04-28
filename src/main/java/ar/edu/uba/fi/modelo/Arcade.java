@@ -1,11 +1,17 @@
 package ar.edu.uba.fi.modelo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Arcade {
+    private final ArrayList<Juego> juegos;
     private int creditoEnFichas;
     private int creditoEnCreditos;
 
-    public Arcade() {
+    public Arcade(Juego ...juegos) {
 
+        this.juegos = new ArrayList<Juego>();
+        this.juegos.addAll(Arrays.asList(juegos));
     }
 
     public void agregarFicha(int cantidadFichas) {
@@ -25,22 +31,7 @@ public class Arcade {
 
     public String jugarA(String nombreDelJuego) {
 
-        {
-            WonderBoy juego = new WonderBoy(1);
-            if (juego.mismoNombre(nombreDelJuego)) {
-                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
-            }
-        }
-
-        {
-            MK2 juego = new MK2(2);
-            if (juego.mismoNombre(nombreDelJuego)) {
-                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
-            }
-        }
-
-        {
-            KI2 juego = new KI2(30);
+        for( Juego juego : this.juegos) {
             if (juego.mismoNombre(nombreDelJuego)) {
                 return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
             }
@@ -48,10 +39,6 @@ public class Arcade {
 
         throw new SinCredito();
 
-    }
-
-    private boolean creditosParaKI2() {
-        return creditoEnCreditos >= 30;
     }
 
 }
