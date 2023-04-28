@@ -20,18 +20,29 @@ public class Arcade {
         this.creditoEnCreditos = cantidadCreditos;
     }
 
+    public void agregarCreditos(String cantidadDeCreditos) {
+
+        this.creditoEnCreditos = this.creditoEnCreditos + Integer.parseInt(cantidadDeCreditos);
+    }
+
     public String jugarA(String nombreDelJuego) {
 
-        if ( nombreDelJuego.equals("Wonderboy") && this.creditosParaWonderboy()) {
-            return "Jugando";
+        {
+            WonderBoy juego = new WonderBoy(1);
+            if (juego.mismoNombre(nombreDelJuego)) {
+                return juego.jugar(this.creditoEnFichas);
+            }
         }
 
-        if ( nombreDelJuego.equals("MK2") && this.creditosParaMK2()) {
-            return "Jugando";
+        {
+            MK2 juego = new MK2(2);
+            if (juego.mismoNombre(nombreDelJuego)) {
+                return juego.jugar(this.creditoEnFichas);
+            }
         }
 
-        if ( nombreDelJuego.equals("KI2") && this.creditosParaKI2()) {
-            return "Jugando";
+        if ( nombreDelJuego.equals("KI2")) {
+            return new KI2(this.creditoEnCreditos).jugar();
         }
 
         throw new SinCredito();
@@ -42,17 +53,4 @@ public class Arcade {
         return creditoEnCreditos >= 30;
     }
 
-    private boolean creditosParaMK2() {
-
-        return creditoEnFichas >= 2;
-    }
-
-    private boolean creditosParaWonderboy() {
-
-        return creditoEnFichas >= 1;
-    }
-
-    public void agregarCreditos(String cantidadDeCreditos) {
-        this.creditoEnCreditos = this.creditoEnCreditos + Integer.parseInt(cantidadDeCreditos);
-    }
 }
