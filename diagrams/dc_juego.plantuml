@@ -1,0 +1,39 @@
+@startuml
+
+abstract class Juego {
+    - nombre
+
+    + Juego(String nombre, Credito ...creditoNecesarioParaJugar)
+    + boolean mismoNombre(String nombre)
+    + {abstract} String jugar(ArrayList<Credito> creditos)
+    + Credito creditoEnFichasNecesarios()
+    + Credito creditoEnCreditosNecesarios()
+    + Credito totalCreditosEnFichas(ArrayList<Credito> creditos)
+    + Credito totalCreditosEnCreditos(ArrayList<Credito> creditos)
+
+}
+
+class MK2 {
+    + MK2()
+    + String jugar(ArrayList<Credito> creditos)
+}
+class KI2 {
+    + KI2()
+    + String jugar(ArrayList<Credito> creditos)
+}
+class Wonderboy {
+    + Wonderboy()
+    + String jugar(ArrayList<Credito> creditos)
+}
+
+interface Credito {
+    + Credito acumular(Credito otro)
+    + boolean menorOIgual(Credito otro)
+}
+
+Juego <|-- MK2
+Juego <|-- KI2
+Juego <|-- Wonderboy
+
+Juego *- "*" Credito
+@enduml

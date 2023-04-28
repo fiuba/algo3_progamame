@@ -1,0 +1,30 @@
+@startuml
+
+interface Credito {
+    + Credito acumular(Credito otro)
+    + boolean menorOIgual(Credito otro)
+}
+
+class Ficha {
+    - cantidadFichas
+
+    + Ficha()
+    + Ficha(int cantidadFichas)
+
+    + Credito acumular(Credito otro)
+    + boolean menorOIgual(Credito otro)
+}
+
+class DineroDigital {
+    - cantidadFichas
+
+    + DineroDigital()
+    + DineroDigital(int cantidadFichas)
+
+    + Credito acumular(Credito otro)
+    + boolean menorOIgual(Credito otro)
+}
+
+Credito <|-- Ficha
+Credito <|-- DineroDigital
+@enduml

@@ -1,6 +1,6 @@
 package ar.edu.uba.fi.modelo;
 
-public class Ficha extends Credito {
+public class Ficha implements Credito {
     private int cantidadFichas;
 
     public Ficha(int cantidadFichas) {
@@ -26,10 +26,6 @@ public class Ficha extends Credito {
         return new Ficha(otro.cantidadFichas + cantidadFichas);
     }
 
-    public int valor() {
-        return cantidadFichas;
-    }
-
     @Override
     public boolean menorOIgual(Credito c) {
         if ( !c.getClass().equals(this.getClass())) {
@@ -37,6 +33,6 @@ public class Ficha extends Credito {
         }
         Ficha otro = (Ficha) c;
 
-        return this.valor() <= otro.valor();
+        return this.cantidadFichas <= otro.cantidadFichas;
     }
 }

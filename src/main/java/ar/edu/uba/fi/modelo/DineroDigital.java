@@ -1,6 +1,6 @@
 package ar.edu.uba.fi.modelo;
 
-public class DineroDigital extends Credito {
+public class DineroDigital implements Credito {
     private int cantidadCreditos;
 
     public DineroDigital(int cantidadCreditos) {
@@ -29,11 +29,6 @@ public class DineroDigital extends Credito {
         return new DineroDigital(otro.cantidadCreditos + cantidadCreditos);
     }
 
-    public int valor() {
-
-        return cantidadCreditos;
-    }
-
     @Override
     public boolean menorOIgual(Credito c) {
         if ( !c.getClass().equals(this.getClass())) {
@@ -42,7 +37,7 @@ public class DineroDigital extends Credito {
 
         DineroDigital otro = (DineroDigital) c;
 
-        return this.valor() <= otro.valor();
+        return this.cantidadCreditos <= otro.cantidadCreditos;
 
     }
 }
