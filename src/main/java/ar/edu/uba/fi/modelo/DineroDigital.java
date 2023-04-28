@@ -33,4 +33,16 @@ public class DineroDigital extends Credito {
 
         return cantidadCreditos;
     }
+
+    @Override
+    public boolean menorOIgual(Credito c) {
+        if ( !c.getClass().equals(this.getClass())) {
+            return false;
+        }
+
+        DineroDigital otro = (DineroDigital) c;
+
+        return this.valor() <= otro.valor();
+
+    }
 }

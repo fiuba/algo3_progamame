@@ -107,4 +107,15 @@ public class ArcadeTest
 
         assertEquals(resultado, "Jugando");
     }
+
+    @Test
+    public void test09JugadorAgregaCreditos10EligeKI2NoCredito() {
+        Arcade arcade = new Arcade(new KI2());
+
+        arcade.agregarCreditos(10);
+
+        assertThrows(SinCredito.class, () -> {
+            arcade.jugarA("KI2");
+        });
+    }
 }

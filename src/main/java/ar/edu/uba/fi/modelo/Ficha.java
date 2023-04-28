@@ -29,4 +29,14 @@ public class Ficha extends Credito {
     public int valor() {
         return cantidadFichas;
     }
+
+    @Override
+    public boolean menorOIgual(Credito c) {
+        if ( !c.getClass().equals(this.getClass())) {
+            return false;
+        }
+        Ficha otro = (Ficha) c;
+
+        return this.valor() <= otro.valor();
+    }
 }
