@@ -1,24 +1,24 @@
 package ar.edu.uba.fi.modelo;
 
-public class Credito {
+public class DineroDigital {
     private int cantidadCreditos;
 
-    public Credito(int cantidadCreditos) {
+    public DineroDigital(int cantidadCreditos) {
 
         this.cantidadCreditos = cantidadCreditos;
     }
 
-    public Credito() {
+    public DineroDigital() {
 
         this.cantidadCreditos = 0;
     }
 
-    public Credito(String cantidadDeCreditos) {
+    public DineroDigital(String cantidadDeCreditos) {
         this.cantidadCreditos = Integer.parseInt(cantidadDeCreditos);
     }
 
-    public Credito acumular(Credito c) {
-        return new Credito(c.cantidadCreditos + cantidadCreditos);
+    public DineroDigital acumular(DineroDigital c) {
+        return new DineroDigital(c.cantidadCreditos + cantidadCreditos);
     }
 
     public int valor() {

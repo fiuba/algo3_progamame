@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Arcade {
     private final ArrayList<Juego> juegos;
     private final ArrayList<Ficha> creditoEnFichas;
-    private final ArrayList<Credito> creditoEnCreditos;
+    private final ArrayList<DineroDigital> creditoEnCreditos;
 
     public Arcade(Juego ...juegos) {
 
@@ -18,17 +18,18 @@ public class Arcade {
     }
 
     public void agregarFicha(int cantidadFichas) {
+
         this.creditoEnFichas.add(new Ficha(cantidadFichas));
     }
 
     public void agregarCreditos(int cantidadCreditos) {
 
-        this.creditoEnCreditos.add(new Credito(cantidadCreditos));
+        this.creditoEnCreditos.add(new DineroDigital(cantidadCreditos));
     }
 
     public void agregarCreditos(String cantidadDeCreditos) {
 
-        this.creditoEnCreditos.add(new Credito(cantidadDeCreditos));
+        this.creditoEnCreditos.add(new DineroDigital(cantidadDeCreditos));
     }
 
     public String jugarA(String nombreDelJuego) {
@@ -44,9 +45,9 @@ public class Arcade {
     }
 
     private int totalCreditosEnCreditos() {
-        Credito total = new Credito();
+        DineroDigital total = new DineroDigital();
 
-        for(Credito c : this.creditoEnCreditos) {
+        for(DineroDigital c : this.creditoEnCreditos) {
             total = total.acumular(c);
         }
         return total.valor();
