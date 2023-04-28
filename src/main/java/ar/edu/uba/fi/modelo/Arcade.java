@@ -5,40 +5,60 @@ import java.util.Arrays;
 
 public class Arcade {
     private final ArrayList<Juego> juegos;
-    private int creditoEnFichas;
-    private int creditoEnCreditos;
+    private final ArrayList<Ficha> creditoEnFichas;
+    private final ArrayList<Credito> creditoEnCreditos;
 
     public Arcade(Juego ...juegos) {
 
-        this.juegos = new ArrayList<Juego>();
+        this.juegos = new ArrayList<>();
         this.juegos.addAll(Arrays.asList(juegos));
+
+        this.creditoEnFichas = new ArrayList<>();
+        this.creditoEnCreditos = new ArrayList<>();
     }
 
     public void agregarFicha(int cantidadFichas) {
-
-        this.creditoEnFichas = cantidadFichas;
+        this.creditoEnFichas.add(new Ficha(cantidadFichas));
     }
 
     public void agregarCreditos(int cantidadCreditos) {
 
-        this.creditoEnCreditos = cantidadCreditos;
+        this.creditoEnCreditos.add(new Credito(cantidadCreditos));
     }
 
     public void agregarCreditos(String cantidadDeCreditos) {
 
-        this.creditoEnCreditos = this.creditoEnCreditos + Integer.parseInt(cantidadDeCreditos);
+        this.creditoEnCreditos.add(new Credito(cantidadDeCreditos));
     }
 
     public String jugarA(String nombreDelJuego) {
 
         for( Juego juego : this.juegos) {
             if (juego.mismoNombre(nombreDelJuego)) {
-                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
+                return juego.jugar(totalCreditosEnFichas(), totalCreditosEnCreditos());
             }
         }
 
         throw new SinCredito();
 
+    }
+
+    private int totalCreditosEnCreditos() {
+        Credito total = new Credito();
+
+        for(Credito c : this.creditoEnCreditos) {
+            total = total.acumular(c);
+        }
+        return total.valor();
+    }
+
+    private int totalCreditosEnFichas() {
+        Ficha total = new Ficha();
+
+        for(Ficha f : this.creditoEnFichas) {
+            total = total.acumular(f);
+        }
+        return total.valor();
     }
 
 }
