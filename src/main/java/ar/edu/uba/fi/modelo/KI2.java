@@ -1,10 +1,10 @@
 package ar.edu.uba.fi.modelo;
 
-public class KI2 {
+public class KI2 extends Juego {
     private int creditoEnCreditos;
 
-    public KI2(int creditoEnCreditos) {
-        this.creditoEnCreditos = creditoEnCreditos;
+    public KI2(int creditosNecesariosParaJugar) {
+        super("KI2", creditosNecesariosParaJugar, 0);
     }
 
     private boolean creditosParaKI2() {
@@ -12,11 +12,11 @@ public class KI2 {
     }
 
 
-    public String jugar() {
-        if ( !creditosParaKI2() ) {
-            throw new SinCredito();
-        } else {
+    public String jugar(int creditoEnFichas, int creditoEnCreditos) {
+        if (creditoEnCreditos >= 30) {
             return "Jugando";
+        } else {
+            throw new SinCredito();
         }
     }
 }

@@ -7,7 +7,7 @@ public class MK2 extends Juego {
         super("MK2", 0, creditosEnFichasParaPoderJugar);
     }
 
-    public String jugar(int creditoEnFichas) {
+    public String jugar(int creditoEnFichas, int creditoEnCreditos) {
         if ( this.creditoEnFichasNecesarios <= creditoEnFichas ){
             return "Jugando";
 

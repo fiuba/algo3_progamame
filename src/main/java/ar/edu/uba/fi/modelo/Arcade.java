@@ -1,7 +1,5 @@
 package ar.edu.uba.fi.modelo;
 
-import java.util.ArrayList;
-
 public class Arcade {
     private int creditoEnFichas;
     private int creditoEnCreditos;
@@ -30,19 +28,22 @@ public class Arcade {
         {
             WonderBoy juego = new WonderBoy(1);
             if (juego.mismoNombre(nombreDelJuego)) {
-                return juego.jugar(this.creditoEnFichas);
+                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
             }
         }
 
         {
             MK2 juego = new MK2(2);
             if (juego.mismoNombre(nombreDelJuego)) {
-                return juego.jugar(this.creditoEnFichas);
+                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
             }
         }
 
-        if ( nombreDelJuego.equals("KI2")) {
-            return new KI2(this.creditoEnCreditos).jugar();
+        {
+            KI2 juego = new KI2(30);
+            if (juego.mismoNombre(nombreDelJuego)) {
+                return juego.jugar(this.creditoEnFichas, this.creditoEnCreditos);
+            }
         }
 
         throw new SinCredito();

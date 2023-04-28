@@ -11,7 +11,7 @@ public abstract class Juego {
         this.creditoEnFichasNecesarios = creditoEnFichasNecesarios;
     }
 
-    public abstract String jugar(int creditoEnFichas);
+    public abstract String jugar(int creditoEnFichas, int creditoEnCreditos);
 
     public boolean mismoNombre(String nombre) {
 
