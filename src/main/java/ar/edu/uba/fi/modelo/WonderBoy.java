@@ -6,8 +6,8 @@ public class WonderBoy extends Juego {
         super("Wonderboy", 0, 1);
     }
 
-    public String jugar(int creditoEnFichas, int creditoEnCreditos) {
-        if ( this.creditoEnFichasNecesarios <= creditoEnFichas ){
+    public String jugar(Ficha creditoEnFichas, DineroDigital creditoEnCreditos) {
+        if ( this.creditoEnFichasNecesarios <= creditoEnFichas.valor() ){
             return "Jugando";
 
         } else{

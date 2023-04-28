@@ -7,13 +7,9 @@ public class KI2 extends Juego {
         super("KI2", 30, 0);
     }
 
-    private boolean creditosParaKI2() {
-        return creditoEnCreditos >= 30;
-    }
 
-
-    public String jugar(int creditoEnFichas, int creditoEnCreditos) {
-        if (creditoEnCreditos >= 30) {
+    public String jugar(Ficha creditoEnFichas, DineroDigital creditoEnCreditos) {
+        if (this.creditoEnCreditosNecesarios <= creditoEnCreditos.valor()) {
             return "Jugando";
         } else {
             throw new SinCredito();

@@ -44,22 +44,22 @@ public class Arcade {
 
     }
 
-    private int totalCreditosEnCreditos() {
+    private DineroDigital totalCreditosEnCreditos() {
         DineroDigital total = new DineroDigital();
 
         for(DineroDigital c : this.creditoEnCreditos) {
             total = total.acumular(c);
         }
-        return total.valor();
+        return total;
     }
 
-    private int totalCreditosEnFichas() {
+    private Ficha totalCreditosEnFichas() {
         Ficha total = new Ficha();
 
         for(Ficha f : this.creditoEnFichas) {
             total = total.acumular(f);
         }
-        return total.valor();
+        return total;
     }
 
 }
